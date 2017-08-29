@@ -1,26 +1,16 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
 
-## How to use this template
+## swolemate
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+I've used used a few gym apps to keep track of routines, but always find they over comlicate things.
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
+I wanted a simple app that could track my routines, and give a timer while doing sets of an exercise.
 
-### With the Ionic CLI:
+### Ionic 2
 
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+Ionic 2 is fantastic and allowed me to use some of its more basic features to create my splended tracker!
 
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myTabs tabs
-```
+### In Action
 
-Then, to run it, cd into `myTabs` and run:
-
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
-
-Substitute ios for android if not on a Mac.
-
+![](http://i.imgur.com/gGZTqJU.png)
+![](http://i.imgur.com/ZyYyrBD.png)
+![](http://i.imgur.com/VzXI0vx.png)
