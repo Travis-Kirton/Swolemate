@@ -1,0 +1,43 @@
+<ion-header no-border>
+
+  <ion-navbar color="primary" transparent>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onAddRoutine()">
+      <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="title" text-center placeholder="name me">
+        </ion-input>
+      </ion-item>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list no-lines>
+    <ion-item-sliding padding-left color="light" *ngFor="let exer of exercises; let i = index">
+      <ion-item class="exerciseItem" (click)="onOpenExercise(i)">
+        <ion-card-title>{{ exer.name }}</ion-card-title>
+        <h1 padding-right>{{ exer.weight }}kg</h1>
+        <p>Sets: {{ exer.sets }}</p>
+        <p>Reps: {{ exer.reps }}</p>
+      </ion-item>
+      <ion-item-options side="right">
+        <button color="danger" ion-button icon-only (click)="onDeleteExercise(i)">
+              <ion-icon name="trash"></ion-icon>
+          </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <button ion-item detail-none no-lines text-right (click)="onOpenExercise()">
+        add exercise
+        <ion-icon name="ios-add-circle-outline"
+                  item-end>
+        </ion-icon>
+      </button>
+</ion-content>

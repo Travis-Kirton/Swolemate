@@ -1,0 +1,75 @@
+<ion-header no-border>
+
+  <ion-navbar color="primary" transparent>
+    <ion-title text-center>edit exercise</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <p>Time to get swole! Make sure to be accurate here.</p>
+
+  <p>Enter in the details and the app will do the rest.</p>
+
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <ion-list no-lines>
+
+        <ion-item>
+            <ion-label text-right>Name: </ion-label>
+            <ion-input type="text"
+                       name="name"
+                       required
+                       [ngModel]="name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label text-right>Sets: </ion-label>
+            <ion-input [ngModel]="sets"
+                       name="sets"
+                       required
+                       type="tel"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label text-right>Reps: </ion-label>
+            <ion-input [ngModel] = "reps"
+                       name="reps"
+                       required
+                       type="tel"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label text-right>Weight (kg): </ion-label>
+            <ion-input [ngModel]="weight"
+                       name="weight"
+                       required
+                       type="tel"></ion-input>
+        </ion-item>
+    </ion-list>
+  <ion-grid>
+  <ion-row>
+    <ion-col>
+      <button
+      ion-button
+      block
+      clear
+      color="light"
+      (click)="onDismiss()">
+      Dismiss</button>
+    </ion-col>
+    <ion-col>
+      <button
+        ion-button
+        block
+        color="light"
+        outline
+        type="submit"
+        [disabled]="!f.valid">
+        Confirm</button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</form>
+</ion-content>

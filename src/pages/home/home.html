@@ -1,17 +1,32 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+<ion-header no-border>
+  <ion-navbar color="primary" transparent>
+    <ion-buttons end>
+      <button ion-button icon-only [navPush]="addRoutinePage">
+      <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>swole<span>mate</span></ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+
+  <ion-list no-lines reorder="true" (ionItemReorder)="reorderItems($event)">
+
+         <ion-item-sliding *ngFor="let routine of routineService.loadRoutines(); let i = index">
+
+             <ion-item (click)="onShowRoutine(routine, i)">
+                 <h4>{{routine.name}}</h4>
+                 <p>Exercises: {{ routine.exercise.length }}</p>
+             </ion-item>
+
+             <ion-item-options side="right">
+                 <button color="danger" ion-button icon-only (click)="routineService.deleteRoutine(routine)">
+                     <ion-icon name="trash"></ion-icon>
+                 </button>
+             </ion-item-options>
+         </ion-item-sliding>
+
+     </ion-list>
+
 </ion-content>
