@@ -7,5 +7,48 @@
 </ion-header>
 
 <ion-content padding>
+  <div class="progress-wrapper"> 
+    <round-progress [current]="current" [max]="max" [color]="'#fff'" [background]="'#0b82b3'" [radius]="100" [stroke]="15"
+      [semicircle]="false" [rounded]="false" [clockwise]="false" [responsive]="ss" [duration]="800" [animation]="'easeInOutQuart'"
+      [animationDelay]="0" (onRender)="onTimerEvent($event)">
+    </round-progress>
 
+    <div class="timeText" (click)="pickTime()">{{displayTime}}</div>
+  </div>
+
+    <ion-grid text-center>
+      <ion-row>
+        <ion-col>
+          Sets Completed: {{sets}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <button ion-button outline small (click)="resetSets()">reset sets</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-fab bottom right *ngIf="runTimer && hasStarted && !hasFinished">
+      <button ion-fab (click)="pauseTimer()" outline>
+     <ion-icon name="pause"></ion-icon>
+     </button>
+   </ion-fab>
+   <ion-fab bottom right *ngIf="!runTimer && hasStarted && !hasFinished">
+      <button ion-fab (click)="resumeTimer()" color="primary">
+     <ion-icon name="play"></ion-icon>
+     </button>
+   </ion-fab>
+   <ion-fab bottom right *ngIf="!hasStarted">
+      <button ion-fab (click)="startTimer()" item-right>
+     <ion-icon name="play"></ion-icon>
+     </button>
+   </ion-fab>
+   <ion-fab bottom left *ngIf="!runTimer && (hasStarted || hasFinished) || hasFinished">
+      <button ion-fab color="danger" (click)="initTimer()" item-left>
+      <ion-icon name="refresh"></ion-icon>
+      </button>
+   </ion-fab>
+      
+  
 </ion-content>

@@ -63,7 +63,7 @@ export class AddRoutinePage {
     if (this.title != "" && this.exercises.length > 0) {
       if (this.routineIndex <= (this.routineService.loadRoutines.length+1)) {
         console.log(this.title);
-        this.routineService.replaceRoutine(this.routine, this.routineIndex);
+        this.routineService.replaceRoutine(this.routine, this.routineIndex, this.title);
       }else{
         this.routineService.addRoutine(this.title, this.exercises);
       }

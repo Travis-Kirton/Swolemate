@@ -37,8 +37,9 @@ export class RoutineService {
     );
   }
 
-  replaceRoutine(routine: Routine, index) {
+  replaceRoutine(routine: Routine, index: number, title: string) {
     this.routines[index] = routine;
+    this.routines[index].name = title;
   }
 
   reorderRoutines(data){

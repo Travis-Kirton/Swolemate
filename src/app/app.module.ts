@@ -14,6 +14,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { RoutineService } from '../services/routine';
 import { IonicStorageModule } from '@ionic/storage';
+import { RoundProgressModule } from 'angular-svg-round-progressbar';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { IonicStorageModule } from '@ionic/storage';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    RoundProgressModule 
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -42,7 +45,7 @@ import { IonicStorageModule } from '@ionic/storage';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RoutineService,
+    RoutineService
   ]
 })
 export class AppModule {}
